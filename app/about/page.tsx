@@ -109,11 +109,11 @@ export default function About() {
                   </div>
                   <div>
                     <p className="font-semibold text-gray-900 mb-2">Hours</p>
-                    <p className="text-gray-600 text-sm space-y-1">
+                    <div className="text-gray-600 text-sm space-y-1">
                       <div>Weekdays: {clinicInfo.hours.weekdays}</div>
                       <div>Saturday: {clinicInfo.hours.saturday}</div>
                       <div>Sunday: {clinicInfo.hours.sunday}</div>
-                    </p>
+                    </div>
                   </div>
                 </div>
                 <div className="space-y-6">
