@@ -12,14 +12,16 @@ export default function Gallery() {
     <main>
       <Navbar />
 
-      <section className="py-16 bg-white">
+      <section className="py-20 bg-gradient-to-b from-rose-50 to-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h1 className="text-5xl font-bold text-gray-900 mb-4 text-balance">
-            Clinic Gallery
-          </h1>
-          <p className="text-xl text-gray-600 mb-12">
-            Explore our state-of-the-art clinic facilities and comfortable environment
-          </p>
+          <div className="mb-12">
+            <h1 className="text-5xl font-bold text-gray-900 mb-4 text-balance">
+              Clinic Gallery
+            </h1>
+            <p className="text-xl text-gray-600 max-w-3xl">
+              Explore our state-of-the-art clinic facilities and comfortable healing environment
+            </p>
+          </div>
         </div>
       </section>
 

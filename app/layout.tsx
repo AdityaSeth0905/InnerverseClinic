@@ -44,9 +44,15 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="en">
-      <body className="font-sans antialiased">
-        {children}
+    <html lang="en" suppressHydrationWarning>
+      <head>
+        <meta charSet="utf-8" />
+        <meta httpEquiv="X-UA-Compatible" content="ie=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta name="theme-color" content="#f9a8d4" />
+      </head>
+      <body className="font-sans antialiased overflow-x-hidden">
+        <div suppressHydrationWarning>{children}</div>
         <Analytics />
       </body>
     </html>

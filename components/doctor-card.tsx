@@ -2,31 +2,47 @@
 
 import Image from 'next/image'
 import { doctors } from '@/lib/clinic-data'
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
+import { Badge } from '@/components/ui/badge'
 
 export function DoctorCard({ doctor }: { doctor: typeof doctors[0] }) {
   return (
-    <div className="bg-white rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-shadow">
-      <div className="relative h-64 w-full">
+    <Card className="overflow-hidden group hover:shadow-2xl transition-all duration-300 hover:scale-105">
+      <div className="relative h-80 w-full overflow-hidden bg-gray-200">
         <Image
           src={doctor.image}
           alt={doctor.name}
           fill
-          className="object-cover"
+          className="object-cover group-hover:scale-110 transition-transform duration-500"
         />
+        <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
       </div>
-      <div className="p-6">
-        <h3 className="text-xl font-bold text-gray-900 mb-1">{doctor.name}</h3>
-        <p className="text-rose-500 font-semibold text-sm mb-4">{doctor.title}</p>
-        <div className="mb-4">
-          <p className="text-sm text-gray-600 mb-2 font-semibold">Qualifications:</p>
-          <ul className="text-sm text-gray-600 space-y-1">
+      
+      <CardHeader>
+        <CardTitle className="text-2xl">{doctor.name}</CardTitle>
+        <CardDescription className="text-rose-500 font-semibold">
+          {doctor.title}
+        </CardDescription>
+      </CardHeader>
+      
+      <CardContent className="space-y-4">
+        <div>
+          <p className="text-sm font-semibold text-gray-900 mb-3">Qualifications</p>
+          <div className="flex flex-wrap gap-2">
             {doctor.qualifications.map((qual, idx) => (
-              <li key={idx}>{qual}</li>
+              <Badge key={idx} variant="secondary" className="text-xs">
+                {qual}
+              </Badge>
             ))}
-          </ul>
+          </div>
         </div>
-        <p className="text-gray-600 text-sm leading-relaxed">{doctor.bio}</p>
-      </div>
-    </div>
+        
+        <div>
+          <p className="text-gray-700 text-sm leading-relaxed">
+            {doctor.bio}
+          </p>
+        </div>
+      </CardContent>
+    </Card>
   )
 }

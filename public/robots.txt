@@ -1,0 +1,10 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://innerversehomoeoclinic.com/sitemap.xml
+
+# Allow search engines to crawl all pages
+Allow: /
+
+# Disallow sensitive paths (optional)
+Disallow: /api/

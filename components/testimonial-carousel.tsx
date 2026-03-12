@@ -3,6 +3,9 @@
 import { useState, useEffect, useRef } from 'react'
 import gsap from 'gsap'
 import { testimonials } from '@/lib/clinic-data'
+import { Card } from '@/components/ui/card'
+import { ChevronLeft, ChevronRight } from 'lucide-react'
+import { Button } from '@/components/ui/button'
 
 export function TestimonialCarousel() {
   const [current, setCurrent] = useState(0)
@@ -23,7 +26,7 @@ export function TestimonialCarousel() {
         onComplete: () => {
           gsap.to(contentRef.current, {
             opacity: 1,
-            duration: 0.3,
+            duration: 0.4,
           })
         },
       })
@@ -32,42 +35,78 @@ export function TestimonialCarousel() {
 
   const testimonial = testimonials[current]
 
-  return (
-    <section className="py-16 bg-white">
-      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-        <h2 className="text-4xl font-bold text-center text-gray-900 mb-12">
-          What Our Patients Say
-        </h2>
+  const goToPrevious = () => {
+    setCurrent((prev) => (prev - 1 + testimonials.length) % testimonials.length)
+  }
 
-        <div
-          ref={contentRef}
-          className="bg-gradient-to-r from-rose-50 to-orange-50 rounded-lg p-8 md:p-12 shadow-md"
-        >
-          <div className="flex gap-1 mb-6">
-            {Array(testimonial.rating).fill(null).map((_, i) => (
-              <span key={i} className="text-rose-500 text-xl">★</span>
-            ))}
-          </div>
-          <p className="text-xl text-gray-700 mb-6 italic text-balance">
-            "{testimonial.content}"
+  const goToNext = () => {
+    setCurrent((prev) => (prev + 1) % testimonials.length)
+  }
+
+  return (
+    <section className="py-20 bg-gradient-to-b from-gray-50 to-white">
+      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="mb-16">
+          <h2 className="text-4xl font-bold text-gray-900 mb-4 text-balance">
+            Patient Testimonials
+          </h2>
+          <p className="text-lg text-gray-600">
+            Hear from our satisfied patients
           </p>
-          <div>
-            <p className="font-semibold text-gray-900">{testimonial.name}</p>
-            <p className="text-gray-600 text-sm">{testimonial.location}</p>
-          </div>
         </div>
 
-        <div className="flex justify-center gap-2 mt-8">
-          {testimonials.map((_, idx) => (
-            <button
-              key={idx}
-              onClick={() => setCurrent(idx)}
-              className={`h-2 rounded-full transition-colors ${
-                idx === current ? 'bg-rose-500 w-8' : 'bg-gray-300 w-2'
-              }`}
-              aria-label={`Go to testimonial ${idx + 1}`}
-            />
-          ))}
+        <Card ref={contentRef} className="bg-gradient-to-br from-rose-50 to-orange-50 border-rose-200 shadow-lg">
+          <div className="p-8 md:p-12">
+            <div className="flex gap-1 mb-6">
+              {Array(testimonial.rating)
+                .fill(null)
+                .map((_, i) => (
+                  <span key={i} className="text-yellow-400 text-2xl">★</span>
+                ))}
+            </div>
+            <p className="text-lg md:text-xl text-gray-800 mb-8 italic text-balance leading-relaxed">
+              "{testimonial.content}"
+            </p>
+            <div className="border-t border-rose-200 pt-6">
+              <p className="font-bold text-gray-900 text-lg">{testimonial.name}</p>
+              <p className="text-gray-600">{testimonial.location}</p>
+            </div>
+          </div>
+        </Card>
+
+        <div className="flex items-center justify-between mt-8">
+          <Button
+            variant="outline"
+            size="icon"
+            onClick={goToPrevious}
+            className="border-rose-200 hover:bg-rose-50"
+          >
+            <ChevronLeft className="w-4 h-4" />
+          </Button>
+
+          <div className="flex justify-center gap-3">
+            {testimonials.map((_, idx) => (
+              <button
+                key={idx}
+                onClick={() => setCurrent(idx)}
+                className={`transition-all duration-300 rounded-full ${
+                  idx === current
+                    ? 'bg-rose-500 w-10 h-2'
+                    : 'bg-gray-300 w-2 h-2 hover:bg-gray-400'
+                }`}
+                aria-label={`Go to testimonial ${idx + 1}`}
+              />
+            ))}
+          </div>
+
+          <Button
+            variant="outline"
+            size="icon"
+            onClick={goToNext}
+            className="border-rose-200 hover:bg-rose-50"
+          >
+            <ChevronRight className="w-4 h-4" />
+          </Button>
         </div>
       </div>
     </section>
