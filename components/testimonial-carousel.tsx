@@ -1,73 +1,198 @@
 'use client'
 
-import { useState, useEffect, useRef } from 'react'
-import gsap from 'gsap'
+import { useState } from 'react'
 import { testimonials } from '@/lib/clinic-data'
 
 export function TestimonialCarousel() {
-  const [current, setCurrent] = useState(0)
-  const contentRef = useRef<HTMLDivElement>(null)
-
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setCurrent((prev) => (prev + 1) % testimonials.length)
-    }, 6000)
-    return () => clearInterval(interval)
-  }, [])
-
-  useEffect(() => {
-    if (contentRef.current) {
-      gsap.to(contentRef.current, {
-        opacity: 0,
-        duration: 0.3,
-        onComplete: () => {
-          gsap.to(contentRef.current, {
-            opacity: 1,
-            duration: 0.3,
-          })
-        },
-      })
-    }
-  }, [current])
-
-  const testimonial = testimonials[current]
+  const [active, setActive] = useState(0)
+  const current = testimonials[active]
 
   return (
-    <section className="py-16 bg-white">
-      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-        <h2 className="text-4xl font-bold text-center text-gray-900 mb-12">
-          What Our Patients Say
-        </h2>
+    <section
+      className="py-28 overflow-hidden"
+      style={{ background: 'var(--iv-bg)' }}
+    >
+      <div className="max-w-screen-xl mx-auto px-8 lg:px-20">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
+          {/* Left: label + selector */}
+          <div className="lg:col-span-4 flex flex-col gap-10">
+            <div>
+              <p className="label-tag mb-5">Patient Stories</p>
+              <h2
+                style={{
+                  fontFamily: 'Gilda Display, serif',
+                  fontSize: 'clamp(1.8rem, 3.5vw, 2.8rem)',
+                  color: 'var(--iv-text)',
+                  lineHeight: 1.2,
+                }}
+              >
+                What Our
+                <br />
+                Patients Say
+              </h2>
+            </div>
 
-        <div
-          ref={contentRef}
-          className="bg-gradient-to-r from-rose-50 to-orange-50 rounded-lg p-8 md:p-12 shadow-md"
-        >
-          <div className="flex gap-1 mb-6">
-            {Array(testimonial.rating).fill(null).map((_, i) => (
-              <span key={i} className="text-rose-500 text-xl">★</span>
-            ))}
+            {/* Patient list */}
+            <div className="flex flex-col gap-1">
+              {testimonials.map((t, i) => (
+                <button
+                  key={t.id}
+                  onClick={() => setActive(i)}
+                  className="text-left flex items-center gap-4 py-4 transition-all duration-300"
+                  style={{
+                    borderTop: '1px solid var(--iv-border)',
+                    borderBottom: i === testimonials.length - 1 ? '1px solid var(--iv-border)' : 'none',
+                  }}
+                >
+                  {/* Active indicator */}
+                  <span
+                    style={{
+                      width: '1px',
+                      height: i === active ? '32px' : '0px',
+                      background: 'var(--iv-copper)',
+                      transition: 'height 0.3s ease',
+                      flexShrink: 0,
+                    }}
+                  />
+                  <div>
+                    <p
+                      style={{
+                        fontSize: '0.82rem',
+                        fontWeight: i === active ? 600 : 300,
+                        color: i === active ? 'var(--iv-text)' : 'var(--iv-text-muted)',
+                        letterSpacing: '0.05em',
+                        transition: 'color 0.3s',
+                      }}
+                    >
+                      {t.name}
+                    </p>
+                    <p
+                      style={{
+                        fontSize: '0.65rem',
+                        color: 'var(--iv-text-muted)',
+                        letterSpacing: '0.1em',
+                        marginTop: '1px',
+                      }}
+                    >
+                      {t.location}
+                    </p>
+                  </div>
+                </button>
+              ))}
+            </div>
           </div>
-          <p className="text-xl text-gray-700 mb-6 italic text-balance">
-            "{testimonial.content}"
-          </p>
-          <div>
-            <p className="font-semibold text-gray-900">{testimonial.name}</p>
-            <p className="text-gray-600 text-sm">{testimonial.location}</p>
-          </div>
-        </div>
 
-        <div className="flex justify-center gap-2 mt-8">
-          {testimonials.map((_, idx) => (
-            <button
-              key={idx}
-              onClick={() => setCurrent(idx)}
-              className={`h-2 rounded-full transition-colors ${
-                idx === current ? 'bg-rose-500 w-8' : 'bg-gray-300 w-2'
-              }`}
-              aria-label={`Go to testimonial ${idx + 1}`}
-            />
-          ))}
+          {/* Right: active testimonial */}
+          <div
+            className="lg:col-span-8 flex flex-col gap-8"
+            style={{
+              padding: '3rem',
+              background: 'var(--iv-card)',
+              border: '1px solid var(--iv-border)',
+              position: 'relative',
+            }}
+          >
+            {/* Decorative quote mark */}
+            <span
+              style={{
+                position: 'absolute',
+                top: '1.5rem',
+                right: '2rem',
+                fontFamily: 'Cormorant, serif',
+                fontSize: '8rem',
+                color: 'var(--iv-copper)',
+                opacity: 0.06,
+                lineHeight: 1,
+                pointerEvents: 'none',
+                userSelect: 'none',
+              }}
+            >
+              &ldquo;
+            </span>
+
+            {/* Stars */}
+            <div className="flex gap-1">
+              {Array.from({ length: current.rating }).map((_, i) => (
+                <span
+                  key={i}
+                  style={{
+                    color: 'var(--iv-gold)',
+                    fontSize: '0.75rem',
+                  }}
+                >
+                  ★
+                </span>
+              ))}
+            </div>
+
+            {/* Quote */}
+            <blockquote
+              key={current.id}
+              style={{
+                fontFamily: 'Cormorant, serif',
+                fontStyle: 'italic',
+                fontSize: 'clamp(1.1rem, 2.2vw, 1.5rem)',
+                lineHeight: 1.7,
+                color: 'var(--iv-text)',
+                fontWeight: 300,
+              }}
+            >
+              &ldquo;{current.content}&rdquo;
+            </blockquote>
+
+            {/* Author */}
+            <div
+              className="flex items-center gap-4 pt-4"
+              style={{ borderTop: '1px solid var(--iv-border)' }}
+            >
+              {/* Initials avatar */}
+              <div
+                style={{
+                  width: '40px',
+                  height: '40px',
+                  borderRadius: '50%',
+                  background: 'var(--iv-copper)',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  flexShrink: 0,
+                  opacity: 0.7,
+                }}
+              >
+                <span
+                  style={{
+                    fontFamily: 'Gilda Display, serif',
+                    fontSize: '0.9rem',
+                    color: 'var(--iv-bg)',
+                  }}
+                >
+                  {current.name.charAt(0)}
+                </span>
+              </div>
+              <div>
+                <p
+                  style={{
+                    fontSize: '0.82rem',
+                    fontWeight: 600,
+                    color: 'var(--iv-text)',
+                    letterSpacing: '0.05em',
+                  }}
+                >
+                  {current.name}
+                </p>
+                <p
+                  style={{
+                    fontSize: '0.65rem',
+                    color: 'var(--iv-text-muted)',
+                    letterSpacing: '0.12em',
+                    textTransform: 'uppercase',
+                  }}
+                >
+                  {current.location}
+                </p>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </section>

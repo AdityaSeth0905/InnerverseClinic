@@ -3,60 +3,44 @@ import { Footer } from '@/components/footer'
 import { HeroSection } from '@/components/hero-section'
 import { TestimonialCarousel } from '@/components/testimonial-carousel'
 import { GalleryGrid } from '@/components/gallery-grid'
-import { services } from '@/lib/clinic-data'
+import { DoctorsPreview } from '@/components/doctors-preview'
+import { WhyChooseUs } from '@/components/why-choose-us'
 import Link from 'next/link'
 
 export const metadata = {
-  title: 'Home | Innerverse Homoeoclinic',
-  description: 'Welcome to Innerverse Homoeoclinic - Expert homeopathy treatment in Delhi',
+  title: 'Innerverse Homoeoclinic | Holistic Homeopathy in Delhi',
+  description: 'Welcome to Innerverse Homoeoclinic — Expert homeopathy treatment by Dr. Jaittry and Dr. Manisha in Lajpat Nagar, Delhi.',
 }
 
 export default function Home() {
   return (
-    <main>
+    <main className="overflow-hidden">
       <Navbar />
       <HeroSection />
-
-      <section className="py-16 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-4xl font-bold text-center text-gray-900 mb-12">
-            Our Services
-          </h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {services.map((service, idx) => (
-              <div
-                key={idx}
-                className="p-6 bg-gradient-to-br from-rose-50 to-orange-50 rounded-lg shadow-md hover:shadow-lg transition-shadow"
-              >
-                <h3 className="text-xl font-bold text-gray-900 mb-3">
-                  {service.title}
-                </h3>
-                <p className="text-gray-600 leading-relaxed">
-                  {service.description}
-                </p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
+      <WhyChooseUs />
+      <DoctorsPreview />
       <TestimonialCarousel />
-
       <GalleryGrid />
 
-      <section className="py-16 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-4xl font-bold text-gray-900 mb-6">
-            Ready to Start Your Wellness Journey?
+      {/* CTA Section */}
+      <section className="py-28 bg-clinic-green relative overflow-hidden">
+        <div className="absolute inset-0 opacity-10">
+          <div className="absolute top-0 left-0 w-96 h-96 rounded-full bg-clinic-gold blur-3xl -translate-x-1/2 -translate-y-1/2" />
+          <div className="absolute bottom-0 right-0 w-96 h-96 rounded-full bg-white blur-3xl translate-x-1/2 translate-y-1/2" />
+        </div>
+        <div className="relative max-w-4xl mx-auto px-6 text-center">
+          <p className="text-clinic-gold/80 text-sm tracking-[0.25em] uppercase font-medium mb-4">Begin Your Journey</p>
+          <h2 className="text-4xl md:text-5xl font-serif text-white mb-6 leading-tight">
+            Your Health Deserves<br />Thoughtful Care
           </h2>
-          <p className="text-xl text-gray-600 mb-8 max-w-2xl mx-auto">
-            Get in touch with our experienced doctors to discuss your health concerns
+          <p className="text-white/70 text-lg mb-10 max-w-xl mx-auto leading-relaxed">
+            Connect with our experienced doctors to discuss your health concerns in a calm, compassionate environment.
           </p>
           <Link
             href="/contact"
-            className="inline-block px-8 py-3 bg-rose-500 text-white rounded-lg font-semibold hover:bg-rose-600 transition-colors"
+            className="inline-block px-10 py-4 bg-clinic-gold text-clinic-dark font-semibold tracking-wide hover:bg-clinic-gold/90 transition-all duration-300 rounded-sm text-sm"
           >
-            Book Consultation
+            Book a Consultation
           </Link>
         </div>
       </section>
