@@ -19,7 +19,7 @@ export default function DoctorsPage() {
       <section
         className="pt-40 pb-20 px-8 lg:px-20 max-w-screen-xl mx-auto"
       >
-        <p className="label-tag mb-5">Our Physicians</p>
+        {/* <p className="label-tag mb-5">Our Physicians</p> */}
         <h1
           style={{
             fontFamily: 'Gilda Display, serif',
@@ -60,9 +60,8 @@ export default function DoctorsPage() {
         {doctors.map((doctor, index) => (
           <div
             key={doctor.id}
-            className={`grid grid-cols-1 lg:grid-cols-2 gap-16 items-center ${
-              index % 2 === 1 ? 'lg:[&>*:first-child]:order-2' : ''
-            }`}
+            className={`grid grid-cols-1 lg:grid-cols-2 gap-16 items-center ${index % 2 === 1 ? 'lg:[&>*:first-child]:order-2' : ''
+              }`}
           >
             {/* Image */}
             <div

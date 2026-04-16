@@ -2,7 +2,7 @@ export const clinicInfo = {
   name: 'Innerverse Homoeoclinic',
   tagline: 'Healing from within. Living well.',
   about:
-    'Innerverse Homoeoclinic was founded with a singular purpose — to offer thoughtful, personalised homeopathic care in a calm and welcoming environment. We believe true healing begins when the whole person is understood: mind, body, and spirit.',
+    'Innerverse Homoeoclinic was founded with a singular purpose, to offer thoughtful, personalised homeopathic care in a calm and welcoming environment. We believe true healing begins when the whole person is understood: mind, body, and spirit.',
   address: 'A17, Shop No. 5, Ground Floor, Dayanand Colony, Lajpat Nagar IV, New Delhi – 110024',
   phone: ['+91 8595081325'],
   email: 'support@innerverseclinic.com',
@@ -23,19 +23,19 @@ export const doctors = [
   {
     id: 1,
     name: 'Dr. Jaittry',
-    title: 'Co-Founder & Homeopathic Physician',
+    title: 'M.D. Homeopathic Physician',
     qualifications: ['B.H.M.S — N.H.M.C, Delhi University', 'MD (Sch)'],
     bio: 'Dr. Jaittry brings a compassionate and meticulous approach to every consultation. With a strong academic foundation and a deep commitment to holistic wellness, she specialises in understanding each patient\'s unique constitution to craft individualised treatment plans that address the root cause of illness.',
-    image: '/doctors/dr-jaittry.jpg',
+    image: '/1.jpg',
     imagePlaceholder: 'JQ',
   },
   {
     id: 2,
     name: 'Dr. Manisha',
-    title: 'Co-Founder & Homeopathic Physician',
+    title: 'M.D. Homeopathic Physician',
     qualifications: ['B.H.M.S — N.H.M.C, Delhi University', 'M.D (Hom.)'],
     bio: 'Dr. Manisha combines her postgraduate expertise in homeopathy with a warm, patient-centred philosophy. She is known for her thoroughness and her ability to connect with patients of all ages, guiding them through their wellness journey with clarity, empathy, and evidence-informed homeopathic practice.',
-    image: '/doctors/dr-manisha.jpg',
+    image: '/2.jpg',
     imagePlaceholder: 'DM',
   },
 ]

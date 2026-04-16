@@ -94,18 +94,6 @@ export function HeroSection() {
 
       {/* Main content */}
       <div className="relative flex-1 flex flex-col justify-center max-w-screen-xl mx-auto w-full px-8 lg:px-20 pt-40 pb-24">
-        {/* Label row */}
-        <div
-          className="flex items-center gap-5 mb-10 animate-fade-up animate-fade-up-1"
-        >
-          <span className="label-tag">Est. New Delhi</span>
-          <span
-            className="h-px flex-shrink-0"
-            style={{ width: '48px', background: 'var(--iv-copper)', opacity: 0.6 }}
-          />
-          <span className="label-tag">Homeopathic Medicine</span>
-        </div>
-
         {/* Headline */}
         <div className="mb-8 max-w-4xl">
           <h1

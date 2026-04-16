@@ -3,6 +3,8 @@
 import Link from 'next/link'
 import Image from 'next/image'
 import { clinicInfo } from '@/lib/clinic-data'
+import { motion } from "framer-motion";
+import { ExternalLink, Globe } from 'lucide-react';
 
 export function Footer() {
   const navLinks = [
@@ -11,7 +13,10 @@ export function Footer() {
     { name: 'Our Doctors', href: '/doctors' },
     { name: 'Gallery', href: '/gallery' },
     { name: 'Contact', href: '/contact' },
+    { name: 'Privacy Policy', href: '/privacy-policy' },
+    { name: 'Terms of Use', href: '/terms-of-use' },
   ]
+  const currentYear = new Date().getFullYear();
 
   return (
     <footer className="bg-clinic-dark text-white/70">
@@ -30,7 +35,7 @@ export function Footer() {
       </div>
 
       {/* Main footer */}
-      <div className="max-w-7xl mx-auto px-6 lg:px-8 py-16">
+      <div className="max-w-7xl mx-auto px-6 lg:px-8 pt-16 pb-0">
         <div className="grid grid-cols-1 md:grid-cols-12 gap-10 mb-12">
           {/* Brand column */}
           <div className="md:col-span-5">
@@ -42,17 +47,17 @@ export function Footer() {
                   width={40}
                   height={40}
                   className="object-cover"
-                  onError={() => {}}
+                  onError={() => { }}
                 />
               </div>
               <div className="block text-white font-serif text-2xl leading-tight">
-                  Innerverse Homoeoclinic
-                </div>
+                Innerverse Homoeoclinic
+              </div>
             </Link>
             <p className="text-sm leading-relaxed font-light mb-6 max-w-xs text-white/50">
               {clinicInfo.about}
             </p>
-            <span className="w-8 h-px bg-clinic-gold/40 block" />
+
           </div>
 
           {/* Navigation */}
@@ -103,7 +108,7 @@ export function Footer() {
             {/* Hours */}
             <div className="mt-6 pt-6 border-t border-white/10">
               <p className="text-white/30 text-xs tracking-widest uppercase mb-3 font-light">Hours</p>
-              <div className="space-y-1 text-xs font-light text-white/40">
+              <div className="space-y-1 text-xs font-light text-blue-500 transition-colors">
                 <p>Mon–Fri: {clinicInfo.hours.weekdays}</p>
                 <p>Saturday: {clinicInfo.hours.saturday}</p>
                 <p>Sunday: {clinicInfo.hours.sunday}</p>
@@ -112,23 +117,28 @@ export function Footer() {
           </div>
         </div>
 
-        {/* Bottom bar */}
-        <div className="border-t border-white/10 pt-8 flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
-          <p className="text-xs text-white/25 font-light">
-            &copy; {new Date().getFullYear()} {clinicInfo.name}. All rights reserved.
-          </p>
-          <p className="text-xs text-white/25 font-light">
-            Powered by{' '}
-            <a
-              href="https://www.xyronixlabs.com"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-white/40 hover:text-clinic-gold transition-colors duration-200"
-            >
-              Xyronix Labs Pvt. Ltd.
-            </a>
-          </p>
+        <div className="border-t border-border">
+          <div className="section-container py-6">
+            <div className="flex flex-col md:flex-row items-center justify-between gap-4">
+              <p className="text-sm text-white/50 hover:text-accent transition-colors">
+                © {currentYear} Innerverse Homoeoclinic. All rights reserved.
+              </p>
+
+              <motion.a
+                href="https://www.xyronixlabs.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                whileHover={{ scale: 1.02 }}
+                className="flex items-center gap-2 text-sm text-blue-500 transition-colors"
+              >
+                <Globe size={14} />
+                <span>Powered by <span className="transition-colors text-accent">Xyronix Labs Pvt. Ltd.</span></span>
+                <ExternalLink size={12} />
+              </motion.a>
+            </div>
+          </div>
         </div>
+
       </div>
     </footer>
   )
