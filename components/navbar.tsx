@@ -26,29 +26,28 @@ export function Navbar() {
 
   return (
     <nav
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
-        scrolled
-          ? 'bg-transparent/2 backdrop-blur-md shadow-sm border-b border-clinic-border/60 top-[-10]'
-          : 'bg-clinic-cream'
-      }`}
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${scrolled
+        ? 'bg-transparent/2 backdrop-blur-md shadow-sm border-b border-clinic-border/60 top-[-10]'
+        : 'bg-clinic-cream'
+        }`}
     >
-      <div className="max-w-7xl mx-auto px-6 lg:px-8">
+      <div className="max-w-7xl mx-auto px-4 lg:px-6">
         <div className="flex justify-between items-center h-20">
           {/* Logo */}
-          <Link href="/" className="flex items-center gap-3 group">
-            <div className="relative w-10 h-10 rounded-full overflow-hidden bg-clinic-green flex items-center justify-center shrink-0">
+          <Link href="/" className="flex items-center group">
+            <div>
               <Image
-                src="/logo.jpg"
-                alt="Innerverse Homoeoclinic"
-                width={40}
-                height={40}
+                src="/logo-main.png"
+                alt="Innerverse Homoeclinic"
+                width={100}
+                height={100}
                 className="object-cover"
-                onError={() => {}}
+                onError={() => { }}
               />
             </div>
-            <div className="block font-serif leading-tight text-gray-600 text-xl ">
-                Innerverse Homoeoclinic
-            </div>
+            <h1 className="block font-serif leading-tight text-gray-600 text-xl ">
+              Innerverse Homoeclinic
+            </h1>
           </Link>
 
           {/* Desktop Nav */}
@@ -57,17 +56,15 @@ export function Navbar() {
               <Link
                 key={link.name}
                 href={link.href}
-                className={`text-sm tracking-wide transition-colors duration-200 relative group ${
-                  pathname === link.href
-                    ? 'text-clinic-green font-normal'
-                    : 'text-clinic-text-muted hover:text-clinic-green font-light'
-                }`}
+                className={`text-sm tracking-wide transition-colors duration-200 relative group ${pathname === link.href
+                  ? 'text-clinic-green font-normal'
+                  : 'text-clinic-text-muted hover:text-clinic-green font-light'
+                  }`}
               >
                 {link.name}
                 <span
-                  className={`absolute -bottom-1 left-0 h-px bg-clinic-gold transition-all duration-300 ${
-                    pathname === link.href ? 'w-full' : 'w-0 group-hover:w-full'
-                  }`}
+                  className={`absolute -bottom-1 left-0 h-px bg-clinic-gold transition-all duration-300 ${pathname === link.href ? 'w-full' : 'w-0 group-hover:w-full'
+                    }`}
                 />
               </Link>
             ))}
@@ -86,28 +83,24 @@ export function Navbar() {
             aria-label="Toggle menu"
           >
             <span
-              className={`block h-px bg-clinic-dark transition-all duration-300 ${
-                isOpen ? 'rotate-45 translate-y-1.25 w-6' : 'w-6'
-              }`}
+              className={`block h-px bg-clinic-dark transition-all duration-300 ${isOpen ? 'rotate-45 translate-y-1.25 w-6' : 'w-6'
+                }`}
             />
             <span
-              className={`block h-px bg-clinic-dark transition-all duration-300 ${
-                isOpen ? 'opacity-0 w-4' : 'w-4'
-              }`}
+              className={`block h-px bg-clinic-dark transition-all duration-300 ${isOpen ? 'opacity-0 w-4' : 'w-4'
+                }`}
             />
             <span
-              className={`block h-px bg-clinic-dark transition-all duration-300 ${
-                isOpen ? '-rotate-45 -translate-y-1.25 w-6' : 'w-6'
-              }`}
+              className={`block h-px bg-clinic-dark transition-all duration-300 ${isOpen ? '-rotate-45 -translate-y-1.25 w-6' : 'w-6'
+                }`}
             />
           </button>
         </div>
 
         {/* Mobile Menu */}
         <div
-          className={`md:hidden overflow-hidden transition-all duration-400 ease-in-out ${
-            isOpen ? 'max-h-96 opacity-100 pb-6' : 'max-h-0 opacity-0'
-          }`}
+          className={`md:hidden overflow-hidden transition-all duration-400 ease-in-out ${isOpen ? 'max-h-96 opacity-100 pb-6' : 'max-h-0 opacity-0'
+            }`}
         >
           <div className="border-t border-clinic-border/40 pt-4 space-y-1">
             {navLinks.map((link) => (
@@ -115,11 +108,10 @@ export function Navbar() {
                 key={link.name}
                 href={link.href}
                 onClick={() => setIsOpen(false)}
-                className={`block py-3 text-sm tracking-wide transition-colors ${
-                  pathname === link.href
-                    ? 'text-clinic-green'
-                    : 'text-clinic-text-muted hover:text-clinic-green'
-                }`}
+                className={`block py-3 text-sm tracking-wide transition-colors ${pathname === link.href
+                  ? 'text-clinic-green'
+                  : 'text-clinic-text-muted hover:text-clinic-green'
+                  }`}
               >
                 {link.name}
               </Link>

@@ -40,19 +40,20 @@ export function Footer() {
           {/* Brand column */}
           <div className="md:col-span-5">
             <Link href="/" className="flex items-center gap-3 mb-5 group">
-              <div className="relative w-10 h-10 rounded-full overflow-hidden bg-clinic-green-muted flex items-center justify-center flex-shrink-0">
+              <div >
                 <Image
                   src="/logo-main.png"
-                  alt="Innerverse Homoeoclinic"
-                  width={40}
-                  height={40}
+                  alt="Innerverse Homoeclinic"
+                  width={100}
+                  height={100}
                   className="object-cover"
                   onError={() => { }}
                 />
               </div>
-              <div className="block text-white font-serif text-2xl leading-tight">
-                Innerverse Homoeoclinic
-              </div>
+              <h1 className="text-white font-serif text-2xl leading-tight">
+                Innerverse Homoeclinic
+              </h1>
+
             </Link>
             <p className="text-sm leading-relaxed font-light mb-6 max-w-xs text-white/50">
               {clinicInfo.about}
@@ -132,7 +133,7 @@ export function Footer() {
                 className="flex items-center gap-2 text-sm text-blue-500 transition-colors"
               >
                 <Globe size={14} />
-                <span>Powered by <span className="transition-colors text-accent">Xyronix Labs Pvt. Ltd.</span></span>
+                <span>Powered by <span className="transition-colors text-accent">Xyronix Labs Private Limited.</span></span>
                 <ExternalLink size={12} />
               </motion.a>
             </div>
