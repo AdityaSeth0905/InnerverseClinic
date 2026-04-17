@@ -21,10 +21,10 @@ export default function Gallery() {
       <Navbar />
 
       {/* Hero */}
-      <section className="pt-36 pb-16 bg-white relative">
+      <section className="pt-36 pb-16 bg-clinic-dark relative">
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
           <p className="section-label mb-4">Our Space</p>
-          <h1 className="font-serif text-5xl md:text-6xl text-clinic-dark mb-5 leading-tight max-w-2xl">
+          <h1 className="font-serif text-5xl md:text-6xl text-clinic-cream mb-5 leading-tight max-w-2xl">
             A space designed for calm and healing
           </h1>
           <span className="divider-gold block mb-6" />
@@ -35,7 +35,7 @@ export default function Gallery() {
       </section>
 
       {/* Masonry-style gallery */}
-      <section className="pb-24 bg-white">
+      <section className="m-10 pb-24 bg-white">
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
           {/* First row — featured large + two small */}
           <div className="grid grid-cols-12 gap-3 mb-3">
@@ -48,7 +48,7 @@ export default function Gallery() {
             <div className="col-span-6 md:col-span-4 h-[196px] img-zoom relative bg-clinic-warm overflow-hidden rounded-sm">
               <Image src={allImages[1].src} alt={allImages[1].alt} fill className="object-cover" />
             </div>
-            <div className="col-span-6 md:col-span-4 md:col-start-9 h-[196px] img-zoom relative bg-clinic-warm overflow-hidden rounded-sm mt-0 -mt-px hidden md:block"
+            <div className="col-span-6 md:col-span-4 md:col-start-9 h-[196px] img-zoom relative bg-clinic-warm overflow-hidden rounded-sm -mt-px hidden md:block"
               style={{ marginTop: '3px' }}>
               <Image src={allImages[2].src} alt={allImages[2].alt} fill className="object-cover" />
             </div>

@@ -28,15 +28,15 @@ export function Navbar() {
     <nav
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
         scrolled
-          ? 'bg-clinic-cream/95 backdrop-blur-md shadow-sm border-b border-clinic-border/60'
-          : 'bg-transparent'
+          ? 'bg-transparent/2 backdrop-blur-md shadow-sm border-b border-clinic-border/60 top-[-10]'
+          : 'bg-black'
       }`}
     >
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
         <div className="flex justify-between items-center h-20">
           {/* Logo */}
           <Link href="/" className="flex items-center gap-3 group">
-            <div className="relative w-10 h-10 rounded-full overflow-hidden bg-clinic-green flex items-center justify-center flex-shrink-0">
+            <div className="relative w-10 h-10 rounded-full overflow-hidden bg-clinic-green flex items-center justify-center shrink-0">
               <Image
                 src="/logo.jpg"
                 alt="Innerverse Homoeoclinic"
@@ -46,7 +46,7 @@ export function Navbar() {
                 onError={() => {}}
               />
             </div>
-            <div className="block text-clinic-dark font-serif text-base leading-tight text-xl">
+            <div className="block font-serif leading-tight text-gray-600 text-xl ">
                 Innerverse Homoeoclinic
             </div>
           </Link>
@@ -87,7 +87,7 @@ export function Navbar() {
           >
             <span
               className={`block h-px bg-clinic-dark transition-all duration-300 ${
-                isOpen ? 'rotate-45 translate-y-[5px] w-6' : 'w-6'
+                isOpen ? 'rotate-45 translate-y-1.25 w-6' : 'w-6'
               }`}
             />
             <span
@@ -97,7 +97,7 @@ export function Navbar() {
             />
             <span
               className={`block h-px bg-clinic-dark transition-all duration-300 ${
-                isOpen ? '-rotate-45 -translate-y-[5px] w-6' : 'w-6'
+                isOpen ? '-rotate-45 -translate-y-1.25 w-6' : 'w-6'
               }`}
             />
           </button>

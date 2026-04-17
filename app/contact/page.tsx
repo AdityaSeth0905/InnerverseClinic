@@ -142,27 +142,6 @@ export default function Contact() {
           </div>
         </div>
       </section>
-
-      {/* Map */}
-      <section className="bg-clinic-warm">
-        <div className="max-w-7xl mx-auto px-6 lg:px-8 py-10">
-          <p className="section-label mb-4">Find Us</p>
-          <h2 className="font-serif text-3xl text-clinic-dark mb-6">Visit our clinic</h2>
-        </div>
-        <div className="w-full h-80 grayscale opacity-80">
-          <iframe
-            src={`https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3504.3894928637644!2d77.23428931508348!3d28.56722498244413!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390ce3b9bf4b91df%3A0x41543f95bb2c0c88!2sDayanand%20Colony%2C%20Lajpat%20Nagar%204%2C%20New%20Delhi%2C%20Delhi%20110024!5e0!3m2!1sen!2sin!4v1699999999999!5m2!1sen!2sin`}
-            width="100%"
-            height="320"
-            style={{ border: 0 }}
-            allowFullScreen={false}
-            loading="lazy"
-            referrerPolicy="no-referrer-when-downgrade"
-            title="Innerverse Homoeoclinic Location"
-          />
-        </div>
-      </section>
-
       <Footer />
     </main>
   )
