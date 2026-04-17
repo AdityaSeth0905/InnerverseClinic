@@ -42,7 +42,7 @@ export function Footer() {
             <Link href="/" className="flex items-center gap-3 mb-5 group">
               <div className="relative w-10 h-10 rounded-full overflow-hidden bg-clinic-green-muted flex items-center justify-center flex-shrink-0">
                 <Image
-                  src="/logo.jpg"
+                  src="/logo-main.png"
                   alt="Innerverse Homoeoclinic"
                   width={40}
                   height={40}
