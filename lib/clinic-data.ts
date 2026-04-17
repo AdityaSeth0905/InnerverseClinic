@@ -26,7 +26,7 @@ export const doctors = [
     title: 'M.D. Homeopathic Physician',
     qualifications: ['B.H.M.S — N.H.M.C, Delhi University', 'MD (Sch)'],
     bio: 'Dr. Jaittry brings a compassionate and meticulous approach to every consultation. With a strong academic foundation and a deep commitment to holistic wellness, she specialises in understanding each patient\'s unique constitution to craft individualised treatment plans that address the root cause of illness.',
-    image: '/1.jpg',
+    image: '/1.JPG',
     imagePlaceholder: 'JQ',
   },
   {
@@ -35,7 +35,7 @@ export const doctors = [
     title: 'M.D. Homeopathic Physician',
     qualifications: ['B.H.M.S — N.H.M.C, Delhi University', 'M.D (Hom.)'],
     bio: 'Dr. Manisha combines her postgraduate expertise in homeopathy with a warm, patient-centred philosophy. She is known for her thoroughness and her ability to connect with patients of all ages, guiding them through their wellness journey with clarity, empathy, and evidence-informed homeopathic practice.',
-    image: '/2.jpg',
+    image: '/2.JPG',
     imagePlaceholder: 'DM',
   },
 ]
