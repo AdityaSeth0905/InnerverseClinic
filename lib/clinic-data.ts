@@ -76,12 +76,12 @@ export const testimonials = [
 ]
 
 export const galleryImages = [
-  { id: 1, src: '/gallery/clinic-1.jpg', alt: 'Clinic reception and waiting area' },
-  { id: 2, src: '/gallery/clinic-2.jpg', alt: 'Consultation room' },
-  { id: 3, src: '/gallery/clinic-3.jpg', alt: 'Doctor consultation in progress' },
-  { id: 4, src: '/gallery/clinic-4.jpg', alt: 'Clinic interior' },
-  { id: 5, src: '/gallery/clinic-5.jpg', alt: 'Treatment materials and remedies' },
-  { id: 6, src: '/gallery/clinic-6.jpg', alt: 'Clinic exterior' },
+  { id: 1, src: '/reception.png', alt: 'Clinic reception and waiting area' },
+  { id: 2, src: '/waitingarea.png', alt: 'Consultation room' },
+  { id: 3, src: '/consultaion.png', alt: 'Doctor consultation in progress' },
+  { id: 4, src: '/Clinic.png', alt: 'Clinic interior' },
+  { id: 5, src: '/medicine.png', alt: 'Treatment materials and remedies' },
+  { id: 6, src: '/exterior3.png', alt: 'Clinic exterior' },
 ]
 
 export const whyChooseUs = [

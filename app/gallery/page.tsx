@@ -10,9 +10,9 @@ export const metadata = {
 
 const allImages = [
   ...galleryImages,
-  { id: 7, src: '/gallery/clinic-7.jpg', alt: 'Waiting area details' },
-  { id: 8, src: '/gallery/clinic-8.jpg', alt: 'Remedy shelf' },
-  { id: 9, src: '/gallery/clinic-9.jpg', alt: 'Consultation notes' },
+  // { id: 7, src: '/gallery/clinic-7.jpg', alt: 'Waiting area details' },
+  // { id: 8, src: '/Medicine.png', alt: 'Remedy shelf' },
+  { id: 8, src: '/gallery/clinic-9.jpg', alt: 'Consultation notes' },
 ]
 
 export default function Gallery() {
@@ -39,7 +39,7 @@ export default function Gallery() {
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
           {/* First row — featured large + two small */}
           <div className="grid grid-cols-12 gap-3 mb-3">
-            <div className="col-span-12 md:col-span-8 h-[400px] img-zoom relative bg-clinic-warm overflow-hidden rounded-sm">
+            <div className="col-span-12 md:col-span-8 md:row-span-2 h-[400px] md:h-full img-zoom relative bg-clinic-warm overflow-hidden rounded-sm">
               <Image src={allImages[0].src} alt={allImages[0].alt} fill className="object-cover" />
               <div className="absolute inset-0 flex items-center justify-center">
                 <p className="text-clinic-text-muted/30 text-xs tracking-widest uppercase">Reception</p>
@@ -48,8 +48,7 @@ export default function Gallery() {
             <div className="col-span-6 md:col-span-4 h-[196px] img-zoom relative bg-clinic-warm overflow-hidden rounded-sm">
               <Image src={allImages[1].src} alt={allImages[1].alt} fill className="object-cover" />
             </div>
-            <div className="col-span-6 md:col-span-4 md:col-start-9 h-[196px] img-zoom relative bg-clinic-warm overflow-hidden rounded-sm -mt-px hidden md:block"
-              style={{ marginTop: '3px' }}>
+            <div className="col-span-6 md:col-span-4 h-[196px] img-zoom relative bg-clinic-warm overflow-hidden rounded-sm">
               <Image src={allImages[2].src} alt={allImages[2].alt} fill className="object-cover" />
             </div>
           </div>
@@ -63,17 +62,14 @@ export default function Gallery() {
             ))}
           </div>
 
-          {/* Third row — two + one featured */}
-          <div className="grid grid-cols-12 gap-3">
-            <div className="col-span-6 md:col-span-4 h-56 img-zoom relative bg-clinic-warm overflow-hidden rounded-sm">
+          {/* Third row */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
+            <div className="h-64 img-zoom relative bg-clinic-warm overflow-hidden rounded-sm">
               <Image src={allImages[6]?.src || allImages[0].src} alt={allImages[6]?.alt || ''} fill className="object-cover" />
             </div>
-            <div className="col-span-6 md:col-span-4 h-56 img-zoom relative bg-clinic-warm overflow-hidden rounded-sm">
-              <Image src={allImages[7]?.src || allImages[1].src} alt={allImages[7]?.alt || ''} fill className="object-cover" />
-            </div>
-            <div className="col-span-12 md:col-span-4 h-56 img-zoom relative bg-clinic-warm overflow-hidden rounded-sm">
+            {/* <div className="h-64 img-zoom relative bg-clinic-warm overflow-hidden rounded-sm">
               <Image src={allImages[8]?.src || allImages[2].src} alt={allImages[8]?.alt || ''} fill className="object-cover" />
-            </div>
+            </div> */}
           </div>
         </div>
       </section>

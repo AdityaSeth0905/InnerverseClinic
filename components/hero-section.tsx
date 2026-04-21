@@ -156,9 +156,9 @@ export function HeroSection() {
           }}
         >
           {[
-            { value: '10+', label: 'Years of Practice' },
+            { value: '8+', label: 'Years of Practice' },
             { value: '2', label: 'Expert Physicians' },
-            { value: '5000+', label: 'Patients Treated' },
+            { value: '3000+', label: 'Patients Treated' },
             { value: '100%', label: 'Natural Remedies' },
           ].map((stat) => (
             <div key={stat.label} className="flex flex-col gap-1">
@@ -196,12 +196,12 @@ export function HeroSection() {
           className="h-px flex-1"
           style={{ background: 'var(--iv-border)' }}
         />
-        <span
+        {/* <span
           className="mx-6 label-tag"
           style={{ color: 'var(--iv-text-muted)' }}
         >
           Scroll to explore
-        </span>
+        </span> */}
         <div
           className="h-px flex-1"
           style={{ background: 'var(--iv-border)' }}
