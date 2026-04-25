@@ -20,10 +20,10 @@ export function Footer() {
 
   return (
     <footer className="bg-clinic-dark text-white/70">
-      {/* Map strip */}
-      <div className="w-full h-64 grayscale opacity-70 overflow-hidden">
+      {/* Map strip — clickable to open Google Maps */}
+      <div className="relative w-full h-64 grayscale opacity-70 overflow-hidden hover:opacity-90 transition-opacity duration-300">
         <iframe
-          src={`https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3504.3894928637644!2d77.23428931508348!3d28.56722498244413!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390ce3b9bf4b91df%3A0x41543f95bb2c0c88!2sDayanand%20Colony%2C%20Lajpat%20Nagar%204%2C%20New%20Delhi%2C%20Delhi%20110024!5e0!3m2!1sen!2sin!4v1699999999999!5m2!1sen!2sin`}
+          src={`https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3503.8065887898!2d77.3987928!3d28.573696!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390ce3ec705b945d%3A0xc1f2d4075ba8fd08!2sshop%205%2C%20Innerverse%20Homoeoclinic%20by%20Dr%20Manisha%20and%20Dr%20Jaittry%2C%20A17%2C%20Dayanand%20Colony%2C%20Lajpat%20Nagar%204%2C%20Lajpat%20Nagar%2C%20New%20Delhi%2C%20Delhi%20110024!5e0!3m2!1sen!2sin!4v1699999999999!5m2!1sen!2sin`}
           width="100%"
           height="256"
           style={{ border: 0 }}
@@ -31,6 +31,14 @@ export function Footer() {
           loading="lazy"
           referrerPolicy="no-referrer-when-downgrade"
           title="Clinic Location Map"
+        />
+        {/* Transparent overlay to make the entire map clickable */}
+        <a
+          href="https://maps.app.goo.gl/bA6wm7B1AWu2UGKNA"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="Open clinic location in Google Maps"
+          className="absolute inset-0 z-10 cursor-pointer"
         />
       </div>
 

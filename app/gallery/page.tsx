@@ -12,7 +12,7 @@ const allImages = [
   ...galleryImages,
   // { id: 7, src: '/gallery/clinic-7.jpg', alt: 'Waiting area details' },
   // { id: 8, src: '/Medicine.png', alt: 'Remedy shelf' },
-  { id: 8, src: '/gallery/clinic-9.jpg', alt: 'Consultation notes' },
+  { id: 8, src: '/pages.jpeg', alt: 'Consultation notes' },
 ]
 
 export default function Gallery() {
@@ -64,7 +64,7 @@ export default function Gallery() {
 
           {/* Third row */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
-            <div className="h-64 img-zoom relative bg-clinic-warm overflow-hidden rounded-sm">
+            <div className="h-64 hover:img-zoom relative bg-clinic-warm overflow-hidden rounded-sm">
               <Image src={allImages[6]?.src || allImages[0].src} alt={allImages[6]?.alt || ''} fill className="object-cover" />
             </div>
             {/* <div className="h-64 img-zoom relative bg-clinic-warm overflow-hidden rounded-sm">
