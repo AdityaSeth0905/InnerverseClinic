@@ -80,8 +80,8 @@ export const galleryImages = [
   { id: 2, src: '/waitingarea.png', alt: 'Consultation room' },
   { id: 3, src: '/consultaion.png', alt: 'Doctor consultation in progress' },
   { id: 4, src: '/Clinic.png', alt: 'Clinic interior' },
-  { id: 5, src: '/medicine.png', alt: 'Treatment materials and remedies' },
-  { id: 6, src: '/exterior3.png', alt: 'Clinic exterior' },
+  { id: 5, src: '/Medicine.png', alt: 'Treatment materials and remedies' },
+  { id: 6, src: '/exterior3.PNG', alt: 'Clinic exterior' },
 ]
 
 export const whyChooseUs = [
